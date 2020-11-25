@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="home-content">
+		<p class="head">Welcome to tapshare</p>
+		
+		{% if logged %}
+			<p class="text">You are alread logged in, <a href="{{url_for('profile')}}">show profile</a></p>
+		{% else %}
+		{% endif %}
+
+		<img src="static/images/home.jpg" alt="home icon">
+
+
+		{% if logged %}
+		{% else %}
+
+			<div class="buttons">
+	
+				<a href="{{url_for('profile')}}"><button style="background-image: linear-gradient(45deg, transparent 20%, #fff3 20% 30%, transparent );">Sign in</button></a>
+				<a href="{{url_for('register')}}"><button style="background-image: linear-gradient(-45deg, transparent 20%, #fff3 20% 30%, transparent );">Sign up</button></a>
+			</div>
+
+		{% endif %}
+
+
+	</div>
+{% endblock %}

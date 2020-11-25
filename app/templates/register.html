@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	{% if error %}
+    	<script>swal('User already registered', 'This email is already registered with tapshare', 'warning')</script>
+    {% else %}
+    	<p></p>
+    {% endif %}
+
+
+	<div class="registration-form">
+		<p class="head">Tapshare</p>
+		<p class="text">Share anything with just a tap</p>		
+		<form action="{{url_for('add_user')}}" method="post"> <br>
+			<input type="text" name="username" placeholder="Username" required /> <br>
+
+			
+
+			<input type="email" name="email" placeholder="Email" required /> <br>
+			<input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password" placeholder="Create password" oninvalid="this.setCustomValidity('must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter')"
+  oninput="this.setCustomValidity('')" required /> <br>
+			<button>Create Profile</button>
+
+		</form>
+		<button><a href="{{url_for('login')}}">Already set up? Log in here</a></button>
+	</div>
+
+{% endblock %}

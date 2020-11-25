@@ -1,0 +1,38 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }}'s profile</title>
+        {% else %}
+        <title>Tapshare</title>
+        {% endif %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="static/style.css">
+    </head>
+    <body>
+        
+
+    	<nav>
+    		<p class="head">
+    			<span class="text"><a href="{{url_for('index')}}">Tapshare</a></span>
+    			<span class="links">
+    				{% if logged %}
+                        <a href="{{url_for('profile')}}">Profile</a>
+                        <a href="{{url_for('logout')}}">Logout</a>
+                    {% else %}
+                        <a href="{{url_for('login')}}">Login</a>
+                        <a href="{{url_for('register')}}">Register</a>
+                    {% endif %}
+    			</span>
+    		</p>
+    	</nav>
+
+
+        {% block content %}{% endblock %}
+
+        <script type="text/javascript" src="static/js/index.js"></script>
+
+    </body>
+</html>

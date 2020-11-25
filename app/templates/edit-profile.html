@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+
+
+
+
+
+
+	<div class="registration-form setup-form">
+		<p class="head">Edit your profile</p>
+		<p class="text">Logged in as {{data['data']['name']}} <br>
+		</p>		
+		<span style="width: 80%; color: #444; display: block; text-align: center;">you can toggle the visibility of any link on your profile by the checkbox next to input</span>
+		<form action="{{url_for('update_db')}}" method="post"> <br>
+			
+
+			<input type="text" name="username" placeholder="Username" value="{{data['data']['name']}}" required /> <br>
+			<input type="text" name="bio" value="{{data['data']['bio']}}" placeholder="Add your bio.." /> <br>
+
+			<br><br> <br><br>
+
+			<p class="text" style="text-align: center;">Social links</p>
+
+			<br><br>
+
+			<div class="social-links">
+				
+				<p>
+					<span>
+						<i class="fa fa-instagram"></i>
+					</span>
+					<input type="text" name="instagram" placeholder="instagram username" value="{{data['links']['instagram']['link']}}" />
+					
+					{% if data['links']['instagram']['status'] == 'on' %}
+						<input type="checkbox" name='instagram_check' checked/>
+					{% else %}
+						<input type="checkbox" name='instagram_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-snapchat"></i>
+					</span>
+					<input type="text" name="snapchat" placeholder="snapchat username" value="{{data['links']['snapchat']['link']}}" />
+
+					{% if data['links']['snapchat']['status'] == 'on' %}
+						<input type="checkbox" name='snapchat_check' checked/>
+					{% else %}
+						<input type="checkbox" name='snapchat_check' />
+					{% endif %}
+
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-twitter"></i>
+					</span>
+					<input type="text" name="twitter" placeholder="twitter username" value="{{data['links']['twitter']['link']}}" />
+
+					{% if data['links']['twitter']['status'] == 'on' %}
+						<input type="checkbox" name='twitter_check' checked/>
+					{% else %}
+						<input type="checkbox" name='twitter_check' />
+					{% endif %}
+
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-whatsapp"></i>
+					</span>
+					<input type="text" name="whatsapp" placeholder="whatsapp number" value="{{data['links']['whatsapp']['link']}}" />
+
+					{% if data['links']['whatsapp']['status'] == 'on' %}
+						<input type="checkbox" name='whatsapp_check' checked/>
+					{% else %}
+						<input type="checkbox" name='whatsapp_check' />
+					{% endif %}
+
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-facebook"></i>
+					</span>
+					<input type="text" name="facebook" placeholder="facebook profile link" value="{{data['links']['facebook']['link']}}" />
+
+					{% if data['links']['facebook']['status'] == 'on' %}
+						<input type="checkbox" name='facebook_check' checked/>
+					{% else %}
+						<input type="checkbox" name='facebook_check' />
+					{% endif %}
+
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-linkedin"></i>
+					</span>
+					<input type="text" name="linkedin" placeholder="LinkedIn profile link" value="{{data['links']['linkedin']['link']}}" />
+
+					{% if data['links']['linkedin']['status'] == 'on' %}
+						<input type="checkbox" name='linkedin_check' checked/>
+					{% else %}
+						<input type="checkbox" name='linkedin_check' />
+					{% endif %}
+
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-phone"></i>
+					</span>
+					<input type="text" name="phone" placeholder="phone number" value="{{data['links']['phone']['link']}}" />
+
+					{% if data['links']['phone']['status'] == 'on' %}
+						<input type="checkbox" name='phone_check' checked/>
+					{% else %}
+						<input type="checkbox" name='phone_check' />
+					{% endif %}
+
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-envelope"></i>
+					</span>
+					<input type="text" name="email" placeholder="email" value="{{data['links']['email']['link']}}" />
+					{% if data['links']['email']['status'] == 'on' %}
+						<input type="checkbox" name='email_check' checked/>
+					{% else %}
+						<input type="checkbox" name='email_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-youtube"></i>
+					</span>
+					<input type="text" name="youtube" placeholder="Youtube link" value="{{data['links']['youtube']['link']}}" />
+					{% if data['links']['youtube']['status'] == 'on' %}
+						<input type="checkbox" name='youtube_check' checked/>
+					{% else %}
+						<input type="checkbox" name='youtube_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-tiktok">𝅘𝅥𝅮</i>
+					</span>
+					<input type="text" name="tiktok" placeholder="TikTok username" value="{{data['links']['tiktok']['link']}}" />
+					{% if data['links']['tiktok']['status'] == 'on' %}
+						<input type="checkbox" name='tiktok_check' checked/>
+					{% else %}
+						<input type="checkbox" name='tiktok_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-soundcloud"></i>
+					</span>
+					<input type="text" name="soundcloud" placeholder="soundcloud username" value="{{data['links']['soundcloud']['link']}}" />
+					{% if data['links']['soundcloud']['status'] == 'on' %}
+						<input type="checkbox" name='soundcloud_check' checked/>
+					{% else %}
+						<input type="checkbox" name='soundcloud_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-spotify"></i>
+					</span>
+					<input type="text" name="spotify" placeholder="spotify link" value="{{data['links']['spotify']['link']}}" />
+					{% if data['links']['spotify']['status'] == 'on' %}
+						<input type="checkbox" name='spotify_check' checked/>
+					{% else %}
+						<input type="checkbox" name='spotify_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-apple"></i>
+					</span>
+					<input type="text" name="apple" placeholder="apple music link" value="{{data['links']['apple']['link']}}" />
+					{% if data['links']['apple']['status'] == 'on' %}
+						<input type="checkbox" name='apple_check' checked/>
+					{% else %}
+						<input type="checkbox" name='apple_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-venmo">V</i>
+					</span>
+					<input type="text" name="venmo" placeholder="venmo username" value="{{data['links']['venmo']['link']}}" />
+
+					{% if data['links']['venmo']['status'] == 'on' %}
+						<input type="checkbox" name='venmo_check' checked/>
+					{% else %}
+						<input type="checkbox" name='venmo_check' />
+					{% endif %}
+
+
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-usd"></i>
+					</span>
+					<input type="text" name="cashapp" placeholder="Cash App username" value="{{data['links']['cashapp']['link']}}" />
+					{% if data['links']['cashapp']['status'] == 'on' %}
+						<input type="checkbox" name='cashapp_check' checked/>
+					{% else %}
+						<input type="checkbox" name='cashapp_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-paypal"></i>
+					</span>
+					<input type="text" name="paypal" placeholder="paypal.me link" value="{{data['links']['paypal']['link']}}" />
+					{% if data['links']['paypal']['status'] == 'on' %}
+						<input type="checkbox" name='paypal_check' checked/>
+					{% else %}
+						<input type="checkbox" name='paypal_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-twitch"></i>
+					</span>
+					<input type="text" name="twitch" placeholder="twitch username" value="{{data['links']['twitch']['link']}}" />
+					{% if data['links']['twitch']['status'] == 'on' %}
+						<input type="checkbox" name='twitch_check' checked/>
+					{% else %}
+						<input type="checkbox" name='twitch_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-link"></i>
+					</span>
+					<input type="text" name="link" placeholder="any link" value="{{data['links']['link']['link']}}" />
+					{% if data['links']['link']['status'] == 'on' %}
+						<input type="checkbox" name='link_check' checked/>
+					{% else %}
+						<input type="checkbox" name='link_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-globe"></i>
+					</span>
+					<input type="text" name="website" placeholder="website link" value="{{data['links']['website']['link']}}" />
+					{% if data['links']['website']['status'] == 'on' %}
+						<input type="checkbox" name='website_check' checked/>
+					{% else %}
+						<input type="checkbox" name='website_check' />
+					{% endif %}
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-map-marker"></i>
+					</span>
+					<input type="text" name="address" placeholder="business address" value="{{data['links']['address']['link']}}"  />
+					{% if data['links']['address']['status'] == 'on' %}
+						<input type="checkbox" name='address_check' checked/>
+					{% else %}
+						<input type="checkbox" name='address_check' />
+					{% endif %}
+				</p>
+
+			</div>
+
+
+			
+			<button>Save profile</button>
+
+
+
+		</form>
+		<!-- <button><a href="{{url_for('login')}}">Already set up? Log in here</a></button> -->
+	</div>
+
+
+
+
+
+
+{% endblock %}

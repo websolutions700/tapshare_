@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	{% if error %}
+    	<script>swal('User already registered', 'This email is already registered with tapshare', 'warning')</script>
+    {% else %}
+    	<p></p>
+    {% endif %}
+
+
+	<div class="registration-form setup-form">
+		<p class="head">Welcome to Tapshare</p>
+		<p class="text">Setup your profile to get started <br>
+		</p>		
+		<span style="width: 80%; color: #444; display: block; text-align: center;">you can toggle the visibility of any link on your profile by the checkbox next to input</span>
+		<form action="{{url_for('setup_db')}}" method="post"> <br>
+			<input type="text" name="username" placeholder="Username" value="{{username}}" required /> <br>
+			<input type="text" name="bio" placeholder="Add your bio.." /> <br>
+
+			<br><br> <br><br>
+
+			<p class="text" style="text-align: center;">Social links</p>
+
+			<br><br>
+
+			<div class="social-links">
+				
+				<p>
+					<span>
+						<i class="fa fa-instagram"></i>
+					</span>
+					<input type="text" name="instagram" placeholder="instagram username" />
+					<input type="checkbox" name='instagram_check' />
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-snapchat"></i>
+					</span>
+					<input type="text" name="snapchat" placeholder="snapchat username" />
+					<input type="checkbox" name='snapchat_check'>
+
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-twitter"></i>
+					</span>
+					<input type="text" name="twitter" placeholder="twitter username" />
+					<input type="checkbox" name='twitter_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-whatsapp"></i>
+					</span>
+					<input type="text" name="whatsapp" placeholder="whatsapp number" />
+					<input type="checkbox" name='whatsapp_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-facebook"></i>
+					</span>
+					<input type="text" name="facebook" placeholder="facebook profile link" />
+					<input type="checkbox" name='facebook_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-linkedin"></i>
+					</span>
+					<input type="text" name="linkedin" placeholder="LinkedIn profile link" />
+					<input type="checkbox" name='linkedin_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-phone"></i>
+					</span>
+					<input type="text" name="phone" placeholder="phone number" />
+					<input type="checkbox" name='phone_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-envelope"></i>
+					</span>
+					<input type="text" name="email" placeholder="email" />
+					<input type="checkbox" name='email_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-youtube"></i>
+					</span>
+					<input type="text" name="youtube" placeholder="Youtube link" />
+					<input type="checkbox" name='youtube_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-tiktok">𝅘𝅥𝅮</i>
+					</span>
+					<input type="text" name="tiktok" placeholder="TikTok username" />
+					<input type="checkbox" name='tiktok_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-soundcloud"></i>
+					</span>
+					<input type="text" name="soundcloud" placeholder="soundcloud username" />
+					<input type="checkbox" name='soundcloud_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-spotify"></i>
+					</span>
+					<input type="text" name="spotify" placeholder="spotify link" />
+					<input type="checkbox" name='spotify_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-apple"></i>
+					</span>
+					<input type="text" name="apple" placeholder="apple music link" />
+					<input type="checkbox" name='apple_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-venmo">V</i>
+					</span>
+					<input type="text" name="venmo" placeholder="venmo username" />
+					<input type="checkbox" name='venmo_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-usd"></i>
+					</span>
+					<input type="text" name="cashapp" placeholder="Cash App username" />
+					<input type="checkbox" name='cashapp_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-paypal"></i>
+					</span>
+					<input type="text" name="paypal" placeholder="paypal.me link" />
+					<input type="checkbox" name='paypal_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-twitch"></i>
+					</span>
+					<input type="text" name="twitch" placeholder="twitch username" />
+					<input type="checkbox" name='twitch_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-link"></i>
+					</span>
+					<input type="text" name="link" placeholder="any link" />
+					<input type="checkbox" name='link_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-globe"></i>
+					</span>
+					<input type="text" name="website" placeholder="website link" />
+					<input type="checkbox" name='website_check'>
+				</p>
+
+				<p>
+					<span>
+						<i class="fa fa-map-marker"></i>
+					</span>
+					<input type="text" name="address" placeholder="business address" />
+					<input type="checkbox" name='address_check'>
+				</p>
+
+			</div>
+
+
+			
+			<button>Save profile</button>
+
+
+
+		</form>
+		<!-- <button><a href="{{url_for('login')}}">Already set up? Log in here</a></button> -->
+	</div>
+
+	<script type="text/javascript">
+		document.querySelectorAll('.setup-form .social-links p input[type=text]').forEach(el => {
+			el.onclick = function() {
+				document.querySelector(`.setup-form .social-links p input[name = ${this.name}_check]`).checked = true;
+			}
+		})
+	</script>
+
+	
+
+{% endblock %}

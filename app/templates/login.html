@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	{% if error %}
+    	<script>swal('Login failed', 'Invalid tapshare id or password', 'warning')</script>
+    {% else %}
+    	<p></p>
+    {% endif %}
+
+
+	<div class="registration-form">
+		<p class="head">Tapshare</p>
+		<p class="text">Share anything with just a tap</p>		
+		<form action="{{url_for('user_login')}}" method="post"> <br>
+			<input type="email" name="email" placeholder="Email" required /> <br>
+
+			
+
+			<!-- <input type="email" name="email" placeholder="Email" required /> <br> -->
+			<input type="password" name="password" placeholder="Password" required /> <br>
+			<button>Login</button>
+
+		</form>
+		<button><a href="{{url_for('register')}}">New to tapshare? Sign up</a></button>
+	</div>
+
+{% endblock %}
